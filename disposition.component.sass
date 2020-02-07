@@ -1,0 +1,88 @@
+@import '../../../../styles/variables'
+.tickets-dispositions--container
+    .dispositions-list
+        list-style: none
+        padding: 0
+        margin: 1rem
+        &--container
+        &--item
+            padding: 0.5rem 1rem
+            margin: .5rem 0
+            background: #F7F7F7
+
+            &-topic
+                .expand
+                    padding-right: 1rem
+                .title
+                    min-width: 10rem
+                .add-label
+                    color: #1A89EF
+                    font-size: 1.2rem
+                .delete-topic
+                    color: #F34A24
+                    font-size: 1.2rem
+    .disposition-add-field
+        //padding-left: 1rem
+        margin: 1rem
+
+
+.example-tree-invisible
+    display: none
+
+.example-tree
+    ul
+.example-tree 
+    li
+        margin-top: 0
+        margin-bottom: 0
+        list-style-type: none
+
+.tree-action-btn
+    &__add
+        //margin-left: 2%
+        color: var(--mainlayout-colour)
+    &__clear
+        color: red
+
+.tree-topic-title
+    width : 90%
+    float: left
+    display: inline block
+
+.tree-action-panel
+    width : 10%
+    float : right
+    display: inline block
+
+::ng-deep.mat-icon-disposition-action
+    font-size: 20px !important
+    width: 20px !important
+    height: 20px !important
+    line-height: 20px !important
+
+
+::ng-deep.add-field-btn
+  color: var(--mainlayout-colour)
+  margin: unset !important
+  box-shadow: none !important
+
+::ng-deep.mat-icon-disposition-custom-2
+  width: 20px !important
+  height: 20px !important
+  line-height: normal !important
+  font-size: 20px !important
+  font-weight: lighter !important
+
+
+.disposition-title
+    padding: 10px
+.disposition-action
+    margin-left: 80%
+
+::mat-tree-node 
+    display: grid
+    align-items: center
+    min-height: 48px
+    flex: 1
+    overflow: hidden
+    word-wrap: break-word

@@ -1,0 +1,14 @@
+<div class="co-dialog-close-btn"><button class="icon-button" mat-dialog-close><i class="fas fa-times"></i></button>
+</div>
+<div mat-dialog-content class="add-knowledge-dialog--body">
+  <div class="pt-1 flex column flex-wrap">
+   <mat-label>Input</mat-label>
+      <textarea matInput placeholder="Ex. 100 Main St" class="co-input full-width sharp-edge my-5" placeholder="Topic"  [(ngModel)]="topic" required></textarea>
+    <!-- <input class="co-input full-width sharp-edge my-5" placeholder="Topic"  [(ngModel)]="topic" required/> -->
+  </div>
+  <div class="button-position">
+    <button class="normal-btn x-small" (click)="onSave()" mat-button>
+     Add
+    </button>
+  </div>
+</div>

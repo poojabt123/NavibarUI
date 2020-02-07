@@ -1,0 +1,112 @@
+<div class="mui-container-fluid tickets-dispositions--container">
+  <div class="mui-row">
+    <div class="mui-col-md-12 p-0">
+      <div class="co-list-box">
+
+        <div class="co-input-with-icon my-1">
+          <input matInput placeholder="Search Here" class="co-input full-width" value="" [(ngModel)]="searchTerm">
+          <div class="field-icon">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+
+        <div class="co-list-box__head">
+          <button mat-icon-button class="back-arrow-btn" [routerLink]="['/admin/manage']">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <span class="disposition-title">Recharge</span>
+
+        </div>
+        <div class="co-list-box__body">
+          <div class="dispositions-list--container">
+
+            <!-- disposition tree start -->
+            <div class="dispositions-list">
+              <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+                <!-- This is the tree node template for leaf nodes -->
+                <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+                  <li class="mat-tree-node" [ngStyle]="{'background':getBgColor(node)}">
+                    <!-- use a disabled button to provide padding for tree leaf -->
+                    <!-- <div class="tree-topic-title"> -->
+                      <button mat-icon-button disabled></button>
+                      {{node.topic}}
+                    <!-- </div> -->
+
+                    <!-- <div class="tree-action-panel"> -->
+                      <button mat-icon-button (click)="addNewNode(node)" class="tree-action-btn__add">
+                        <!-- <mat-icon class="mat-icon-disposition-action">add</mat-icon> -->
+                        <button mat-raised-button color="primary">Add</button>
+                      </button>
+                      <button mat-icon-button (click)="addNewNode(node)" class="tree-action-btn__add">
+                        <!-- <mat-icon class="mat-icon-disposition-action">add</mat-icon> -->
+                        <button mat-raised-button color="primary">Yes</button>
+                      </button>
+                      <button mat-icon-button (click)="removeNode(node)" class="tree-action-btn__clear">
+                        <!-- <mat-icon class="mat-icon-disposition-action">clear</mat-icon> -->
+                        <button mat-raised-button color="warn">No</button>
+                      </button>
+                    <!-- </div> -->
+
+                  </li>
+
+                </mat-tree-node>
+
+                <!-- This is the tree node template for expandable nodes -->
+                <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild;">
+                  <li [ngStyle]="{'background':getBgColor(node)}">
+                    <div class="mat-tree-node">
+
+                      <!-- <div class="tree-topic-title"> -->
+                        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.name">
+                          <mat-icon class="mat-icon-rtl-mirror">
+                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                          </mat-icon>
+                        </button>
+                        {{node.topic}}
+                      <!-- </div> -->
+
+                      <!-- <div class="tree-action-panel"> -->
+                        <button mat-icon-button (click)="addNewNode(node)" class="tree-action-btn__add">
+                          <!-- <mat-icon class="mat-icon-disposition-action">add</mat-icon> -->
+                          <button mat-raised-button color="primary">Add</button>
+                        </button>
+                        <button mat-icon-button (click)="addNewNode(node)" class="tree-action-btn__add">
+                          <!-- <mat-icon class="mat-icon-disposition-action">add</mat-icon> -->
+                          <button mat-raised-button color="primary">Yes</button>
+                        </button>
+                        <button mat-icon-button (click)="removeNode(node)" class="tree-action-btn__clear">
+                          <!-- <mat-icon class="mat-icon-disposition-action">clear</mat-icon> -->
+                          <button mat-raised-button color="warn">No</button>
+                        </button>
+                      <!-- </div> -->
+
+
+                    </div>
+                    <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+                      <ng-container matTreeNodeOutlet></ng-container>
+                    </ul>
+                  </li>
+
+                </mat-nested-tree-node>
+              </mat-tree>
+            </div>
+            <!-- disposition tree end -->
+
+            <div class="disposition-add-field">
+              <button mat-button class="add-field-btn" (click)="addNewTopic()">
+                <mat-icon class="mat-icon-disposition-custom-2">add</mat-icon>
+                <span style="margin-left: 2%">Add what you want</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- actions div -->
+      <div class="flex row center flex-end action-btn">
+        <button mat-button class="primary-btn small mat-btn" (click)="save()">Save</button>
+      </div>
+
+    </div>
+  </div>

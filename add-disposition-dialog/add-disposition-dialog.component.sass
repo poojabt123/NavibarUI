@@ -1,0 +1,25 @@
+.add-knowledge-dialog--body
+  @media (min-width: 490px)
+    width: 40rem
+  @media (max-width: 490px)
+    width: 20rem
+
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+    .knowledge-visibility-switch
+      &--wrapper
+        display: flex
+        flex-direction: row
+        justify-content: center
+        margin: 1rem 0
+      &--type
+        margin: 0 0.5rem
+        &.active
+          color: #5EA4FD
+.button-position
+  float: right
+
